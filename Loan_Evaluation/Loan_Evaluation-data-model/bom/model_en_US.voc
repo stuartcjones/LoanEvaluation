@@ -1,0 +1,68 @@
+
+# myModel.Applicant
+myModel.Applicant#concept.label = applicant
+myModel.Applicant.Applicant(double,double,java.lang.String,double,java.lang.String)#phrase.navigation = a new {applicant} where {0, age} {1, corporate score} {2, name} {3, yearly income} {4, zip code}
+myModel.Applicant.age#phrase.action = set the age of {this} to {age}
+myModel.Applicant.age#phrase.addition_setter = add {age} to the age of {this}
+myModel.Applicant.age#phrase.navigation = {age} of {this}
+myModel.Applicant.age#phrase.subtraction_setter = subtract {age} from the age of {this}
+myModel.Applicant.corporateScore#phrase.action = set the corporate score of {this} to {corporate score}
+myModel.Applicant.corporateScore#phrase.addition_setter = add {corporate score} to the corporate score of {this}
+myModel.Applicant.corporateScore#phrase.navigation = {corporate score} of {this}
+myModel.Applicant.corporateScore#phrase.subtraction_setter = subtract {corporate score} from the corporate score of {this}
+myModel.Applicant.name#phrase.action = set the name of {this} to {name}
+myModel.Applicant.name#phrase.navigation = {name} of {this}
+myModel.Applicant.yearlyIncome#phrase.action = set the yearly income of {this} to {yearly income}
+myModel.Applicant.yearlyIncome#phrase.addition_setter = add {yearly income} to the yearly income of {this}
+myModel.Applicant.yearlyIncome#phrase.navigation = {yearly income} of {this}
+myModel.Applicant.yearlyIncome#phrase.subtraction_setter = subtract {yearly income} from the yearly income of {this}
+myModel.Applicant.zipCode#phrase.action = set the zip code of {this} to {zip code}
+myModel.Applicant.zipCode#phrase.navigation = {zip code} of {this}
+
+# myModel.Approval
+myModel.Approval#concept.label = approval
+myModel.Approval.Approval(boolean,java.lang.String)#phrase.navigation = a new {approval} where {0, approved} {1, message}
+myModel.Approval.approved#phrase.action[0] = {this} gets approved only if {approved}
+myModel.Approval.approved#phrase.action[1] = make it {approved} that {this} is approved
+myModel.Approval.approved#phrase.action[1].deprecated = true
+myModel.Approval.approved#phrase.navigation = {this} is approved
+myModel.Approval.approved#phrase.negative_predicate = {this} is not approved
+myModel.Approval.approved#phrase.negative_predicate_setter = {this} does not get approved
+myModel.Approval.approved#phrase.positive_predicate_setter = {this} gets approved
+myModel.Approval.message#phrase.action = set the message of {this} to {message}
+myModel.Approval.message#phrase.navigation = {message} of {this}
+
+# myModel.Grade
+myModel.Grade#concept.label = grade
+myModel.Grade.Grade(java.lang.String,java.lang.String)#phrase.navigation = a new {grade} where {0, grade} {1, message}
+myModel.Grade.grade#phrase.action = set the grade of {this} to {grade}
+myModel.Grade.grade#phrase.navigation = {grade} of {this}
+myModel.Grade.message#phrase.action = set the message of {this} to {message}
+myModel.Grade.message#phrase.navigation = {message} of {this}
+
+# myModel.Insurance
+myModel.Insurance#concept.label = insurance
+myModel.Insurance.Insurance(double,boolean)#phrase.navigation = a new {insurance} where {0, rate} {1, required}
+myModel.Insurance.rate#phrase.action = set the rate of {this} to {rate}
+myModel.Insurance.rate#phrase.addition_setter = add {rate} to the rate of {this}
+myModel.Insurance.rate#phrase.navigation = {rate} of {this}
+myModel.Insurance.rate#phrase.subtraction_setter = subtract {rate} from the rate of {this}
+myModel.Insurance.required#phrase.action[0] = {this} gets required only if {required}
+myModel.Insurance.required#phrase.action[1] = make it {required} that {this} is required
+myModel.Insurance.required#phrase.action[1].deprecated = true
+myModel.Insurance.required#phrase.navigation = {this} is required
+myModel.Insurance.required#phrase.negative_predicate = {this} is not required
+myModel.Insurance.required#phrase.negative_predicate_setter = {this} does not get required
+myModel.Insurance.required#phrase.positive_predicate_setter = {this} gets required
+
+# myModel.Offer
+myModel.Offer#concept.label = offer
+myModel.Offer.Offer(double,double)#phrase.navigation = a new {offer} where {0, amount} {1, monthly repayment}
+myModel.Offer.amount#phrase.action = set the amount of {this} to {amount}
+myModel.Offer.amount#phrase.addition_setter = add {amount} to the amount of {this}
+myModel.Offer.amount#phrase.navigation = {amount} of {this}
+myModel.Offer.amount#phrase.subtraction_setter = subtract {amount} from the amount of {this}
+myModel.Offer.monthlyRepayment#phrase.action = set the monthly repayment of {this} to {monthly repayment}
+myModel.Offer.monthlyRepayment#phrase.addition_setter = add {monthly repayment} to the monthly repayment of {this}
+myModel.Offer.monthlyRepayment#phrase.navigation = {monthly repayment} of {this}
+myModel.Offer.monthlyRepayment#phrase.subtraction_setter = subtract {monthly repayment} from the monthly repayment of {this}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>default-value</name>
+  <uuid>e8a21dc4-05c4-4e85-a227-7573fd503053</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[set 'the applicant' to a new applicant where the name is 
+     "Jane Doe", the corporate score is  423 ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

@@ -1,0 +1,108 @@
+
+package myModel;
+
+
+public class Applicant
+        property "ads.typeId" "3"
+        property "de.generated" "true"
+{
+    public double age
+                property "ads.attributeId" "1"
+                property update "true";
+    public double corporateScore
+                property "ads.attributeId" "2"
+                property update "true";
+    public string name
+                property "ads.attributeId" "3"
+                property update "true";
+    public double yearlyIncome
+                property "ads.attributeId" "4"
+                property update "true";
+    public string zipCode
+                property "ads.attributeId" "5"
+                property update "true";
+    public Applicant(double age, double corporateScore, string name, double yearlyIncome, string zipCode)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public Applicant()
+                property "dataio.default" "true";
+}
+
+public class Approval
+        property "ads.typeId" "2"
+        property "de.generated" "true"
+{
+    public boolean approved
+                property "ads.attributeId" "1"
+                property update "true";
+    public string message
+                property "ads.attributeId" "2"
+                property update "true";
+    public Approval(boolean approved, string message)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public Approval()
+                property "dataio.default" "true";
+}
+
+public class Grade
+        property "ads.typeId" "4"
+        property "de.generated" "true"
+{
+    public string grade
+                property "ads.attributeId" "1"
+                property update "true";
+    public string message
+                property "ads.attributeId" "2"
+                property update "true";
+    public Grade(string grade, string message)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public Grade()
+                property "dataio.default" "true";
+}
+
+public class Insurance
+        property "ads.typeId" "1"
+        property "de.generated" "true"
+{
+    public double rate
+                property "ads.attributeId" "1"
+                property update "true";
+    public boolean required
+                property "ads.attributeId" "2"
+                property update "true";
+    public Insurance(double rate, boolean required)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public Insurance()
+                property "dataio.default" "true";
+}
+
+public class Offer
+        property "ads.typeId" "5"
+        property "de.generated" "true"
+{
+    public double amount
+                property "ads.attributeId" "1"
+                property update "true";
+    public double monthlyRepayment
+                property "ads.attributeId" "2"
+                property update "true";
+    public Offer(double amount, double monthlyRepayment)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public Offer()
+                property "dataio.default" "true";
+}
+

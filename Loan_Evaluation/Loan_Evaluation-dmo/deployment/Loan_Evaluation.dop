@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" rulesetName="Loan_Evaluation" targetRuleProjectName="Loan_Evaluation-dmo">
+  <name>Loan_EvaluationDecision</name>
+  <uuid>caeb023d-230a-4c18-b8b4-facefbacedde</uuid>
+  <decisionModel href="../rules/Loan_Evaluation.dmo#cf689073-003d-4d92-9b69-127be415461c"/>
+  <targetRuleProject href="../../Loan_Evaluation-dmo#fa15cc2a-84c5-448d-ad91-f1999c1107ad"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

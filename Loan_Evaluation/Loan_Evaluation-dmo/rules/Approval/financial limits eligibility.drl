@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>financial limits eligibility</name>
+  <uuid>c499599f-5265-4d4d-a380-d041de9b6276</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[
+if it is not true that 'the financial eligibility'  is approved
+then
+set decision to a new approval where approved is  false, the message is 
+         the message of 'the financial eligibility' ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

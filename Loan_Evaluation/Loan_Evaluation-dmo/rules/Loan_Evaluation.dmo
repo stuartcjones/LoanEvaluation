@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>Loan_Evaluation</name>
+  <uuid>cf689073-003d-4d92-9b69-127be415461c</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="Loan_Evaluation" namespace="">
+    <extensionElements>
+        <description xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">This decision service evaluates whether loan offers can be approved based on the applicant data and, if yes, it computes the loan insurance rate and whether this insurance is mandatory.</description>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="message_id" name="Applicant">
+        <description>Details about the applicant, such as name, birth date, yearly income and Social Security Number</description>
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="myModel.Applicant" collection="false" name="the applicant"/>
+                <rule defaultRule="true" href="Applicant/default-value.drl" kind="BusinessRule" name="default-value"/>
+            </initialization>
+        </extensionElements>
+        <variable id="message_id_ii" name="Applicant" typeRef="myModel.Applicant"/>
+    </inputData>
+    <inputData id="node_2" name="Offer">
+        <description>The amount, offer value, number of monthly payments and start date of the offer request</description>
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="myModel.Offer" collection="false" name="the offer"/>
+                <rule defaultRule="true" href="Offer/default-value.drl" kind="BusinessRule" name="default-value"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_2_ii" name="Offer" typeRef="myModel.Offer"/>
+    </inputData>
+    <decision id="helloworld_d" name="Approval">
+        <description>Decides if the offer is approved or rejected</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="myModel.Grade" collection="false" name="the grade"/>
+                <input bomType="myModel.Approval" collection="false" name="the financial eligibility"/>
+                <input bomType="myModel.Approval" collection="false" name="the applicant eligibility"/>
+                <output bomType="myModel.Approval" collection="false" name="the approval"/>
+                <rule defaultRule="false" href="Approval/financial%20limits%20eligibility.drl" kind="BusinessRule" name="financial limits eligibility"/>
+                <rule defaultRule="false" href="Approval/applicant%20eligibility.drl" kind="BusinessRule" name="applicant eligibility"/>
+                <rule defaultRule="false" href="Approval/risky%20grade.drl" kind="BusinessRule" name="risky grade"/>
+                <rule defaultRule="false" href="Approval/default%20rule.drl" kind="BusinessRule" name="default rule"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="helloworld_d_ii" name="Approval" typeRef="myModel.Approval"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_0" name="Grade">
+        <description>Decides the grade and risk level of the offer request based on the repayment and corporate score of the applicant</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="myModel.Offer" collection="false" name="the offer"/>
+                <input bomType="myModel.Applicant" collection="false" name="the applicant"/>
+                <output bomType="myModel.Grade" collection="false" name="the grade"/>
+                <rule defaultRule="false" href="Grade/grade.dmt" kind="DecisionTable" name="grade"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_0_ii" name="Grade" typeRef="myModel.Grade"/>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#message_id"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_1" name="Insurance">
+        <description>Computes the insurance rate required or not  by the offer.</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="myModel.Grade" collection="false" name="the grade"/>
+                <input bomType="myModel.Offer" collection="false" name="the offer"/>
+                <output bomType="myModel.Insurance" collection="false" name="the insurance"/>
+                <rule defaultRule="false" href="Insurance/default-rule.drl" kind="BusinessRule" name="default-rule"/>
+                <rule defaultRule="false" href="Insurance/insurance.dmt" kind="DecisionTable" name="insurance"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="Insurance" typeRef="myModel.Insurance"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_3" name="Financial eligibility">
+        <description>Checks if the financial limits are valid</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="myModel.Offer" collection="false" name="the offer"/>
+                <input bomType="myModel.Applicant" collection="false" name="the applicant"/>
+                <output bomType="myModel.Approval" collection="false" name="the financial eligibility"/>
+                <rule defaultRule="false" href="Financial%20eligibility/bad%20score.drl" kind="BusinessRule" name="bad score"/>
+                <rule defaultRule="false" href="Financial%20eligibility/too%20big%20Debt%20to%20Income%20ratio.drl" kind="BusinessRule" name="too big Debt to Income ratio"/>
+                <rule defaultRule="false" href="Financial%20eligibility/max%20amount%20exceeded.drl" kind="BusinessRule" name="max amount exceeded"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_3_ii" name="Financial eligibility" typeRef="myModel.Approval"/>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#message_id"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_4" name="Applicant eligibility">
+        <description>Checks if the applicant is eligible for a offer data are valid</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="myModel.Applicant" collection="false" name="the applicant"/>
+                <output bomType="myModel.Approval" collection="false" name="the applicant eligibility"/>
+                <rule defaultRule="false" href="Applicant%20eligibility/age%20not%20valid.drl" kind="BusinessRule" name="age not valid"/>
+                <rule defaultRule="false" href="Applicant%20eligibility/wrong%20zip%20format.drl" kind="BusinessRule" name="wrong zip format"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_4_ii" name="Applicant eligibility" typeRef="myModel.Approval"/>
+        <informationRequirement>
+            <requiredInput href="#message_id"/>
+        </informationRequirement>
+    </decision>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>

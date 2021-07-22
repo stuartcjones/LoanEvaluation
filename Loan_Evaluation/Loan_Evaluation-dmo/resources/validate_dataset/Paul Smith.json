@@ -1,0 +1,13 @@
+{
+  "theApplicant" : {
+    "name" : "Paul Smith",
+    "corporateScore" : 420,
+    "yearlyIncome" : 180000,
+    "age" : 45,
+    "zipCode" : "12345"
+  },
+  "theOffer" : {
+    "amount" : 150000,
+    "monthlyRepayment" : 1605.68
+  }
+}

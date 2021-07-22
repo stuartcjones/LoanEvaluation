@@ -1,0 +1,13 @@
+{
+  "theApplicant" : {
+    "name" : "John Moore",
+    "corporateScore" : 370,
+    "yearlyIncome" : 50000,
+    "age" : 47,
+    "zipCode" : "12345"
+  },
+  "theOffer" : {
+    "amount" : 150000,
+    "monthlyRepayment" : 1605.68
+  }
+}

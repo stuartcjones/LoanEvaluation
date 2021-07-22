@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>risky grade</name>
+  <uuid>290429ec-a2c3-4c52-9dbc-f3c4edaa8665</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+    the grade of 'the grade' is not one of { "A" , "B" , "C" }
+then
+    set decision to a new approval where approved is  false, the message is
+         "We are sorry. Your offer has not been approved" ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

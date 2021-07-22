@@ -1,0 +1,13 @@
+{
+  "theApplicant" : {
+    "name" : "Jane Doe",
+    "corporateScore" : 320,
+    "yearlyIncome" : 100000,
+    "age" : 40,
+    "zipCode" : "12345"
+  },
+  "theOffer" : {
+    "amount" : 100000,
+    "monthlyRepayment" : 1070.45
+  }
+}

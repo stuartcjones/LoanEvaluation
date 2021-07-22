@@ -1,0 +1,13 @@
+{
+  "theApplicant" : {
+    "name" : "Betty Weber",
+    "corporateScore" : 500,
+    "yearlyIncome" : 200000,
+    "age" : 17,
+    "zipCode" : "12345"
+  },
+  "theOffer" : {
+    "amount" : 50000,
+    "monthlyRepayment" : 535.22
+  }
+}
